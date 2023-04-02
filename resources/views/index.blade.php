@@ -1,5 +1,7 @@
 @extends('Layouts.main')
 
+@section('container')
+
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
     <div class="container position-relative">
@@ -942,6 +944,7 @@
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+  
 @endsection
 
 @section('navbar')
