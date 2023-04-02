@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
+Route::get('/kontak', function () {
+    return view('kontak');
+});
 Route::get('/blog-details', function () {
     return view('blog-details');
 });
