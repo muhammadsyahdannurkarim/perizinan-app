@@ -11,7 +11,8 @@ class IzinController extends Controller
      */
     public function index()
     {
-        //
+        $ar_izin = DB::table('izin')->get();
+        return view('view.index',compact('ar_izin'));
     }
 
     /**
