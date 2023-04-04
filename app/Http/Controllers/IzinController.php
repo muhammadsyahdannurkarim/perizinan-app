@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Models\izin;
 
 class IzinController extends Controller
 {
@@ -11,6 +13,7 @@ class IzinController extends Controller
      */
     public function index()
     {
+        //memanpilkan
         $ar_izin = DB::table('izin')->get();
         return view('view.index',compact('ar_izin'));
     }
@@ -60,6 +63,8 @@ class IzinController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //menghapus data
+        DB::table('izin')->where('id',$id)->delete();
+        return redirect('/izin');
     }
 }
