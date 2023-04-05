@@ -67,7 +67,7 @@
                 Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                 velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
               </p>
-              
+
             </div>
           </div>
         </div>
@@ -82,19 +82,31 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Services</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+          <h2>Syarat dan Ketentuan</h2>
+          <p>Sebelum mengisi from perizinan, Alangkah baiknnya memperhatikan Syarat dan kententuan Berikut :</p>
         </div>
 
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-calendar4-week"></i>
+              </div>
+              <h3>Akhlak dan Adab</h3>
+              <p>Setelah mendapatkan izin keluar, Mahasantri wajib menjaga Adab dan menjaga nama baik pesantren.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item  position-relative">
               <div class="icon">
                 <i class="bi bi-activity"></i>
               </div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+              <h3>Ditunjukkan</h3>
+              <p>Perizinan  ini wajib ditunjukkan kepada Security sebelum Mahasantri keluar dari wilayah pesantren.</p>
               <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
@@ -104,8 +116,8 @@
               <div class="icon">
                 <i class="bi bi-broadcast"></i>
               </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              <h3>Batasan </h3>
+              <p>Apabila melebihi batas waktu yang telah ditentukan ( Tanpa alasan yang jelas ) maka Assatidz dan Security berhak memberikan SANKSI.</p>
               <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
@@ -115,8 +127,8 @@
               <div class="icon">
                 <i class="bi bi-easel"></i>
               </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              <h3>Mendesak</h3>
+              <p>Apabila tidak bisa datang pada waktu yang telah ditetapkan harap menghubungi pihak pesantren dengan alasan yang syar'i.</p>
               <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
@@ -126,19 +138,8 @@
               <div class="icon">
                 <i class="bi bi-bounding-box-circles"></i>
               </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
+              <h3>Kebijakan</h3>
+              <p>Assatidz dan Keamanan berhak memberikan kebijakan khusus.</p>
               <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
@@ -148,8 +149,8 @@
               <div class="icon">
                 <i class="bi bi-chat-square-text"></i>
               </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
+              <h3>Berlaku</h3>
+              <p>Surat ini tisak akan berlaku tanpa mendapatakan  izin dari Security dan Asatidz .</p>
               <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
@@ -210,28 +211,60 @@
 
           </div>
 
+          @php
+            $rs1 = App\Models\Jurusan::all();
+        
+            $rs2 = App\Models\Jenis::all();
+          @endphp
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
+
+            <form action="{{ route('izin.store') }}" method="POST">
+            @csrf
+              <div class="form-group mt-3">
+                <input value="{{ old('nama') }}" type="text" name="nama" class="form-control" id="nama" placeholder="Nama" >
+              </div>
+              <div class="form-group mt-3 ">
+                <select class="form-control opacity-75 rounded-0" name="jurusan_id">
+                    <option  selected disabled >Pilih Jurusan</option>
+                    @foreach ($rs1 as $opt)
+                    <option value="{{ $opt->id }}"
+                        {{ old('jurusan_id') == $opt->id ? 'selected' : null }}>{{ $opt->jurusan }}
+                    </option>
+                    @endforeach
+                </select>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input value="{{ old('email') }}" type="email" class="form-control" name="email" id="email" placeholder="email" >
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
+                <input value="{{ old('no_telp') }}" type="text" class="form-control" name="no_telp" id="no_telp" placeholder="No.Handphone" >
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="form-group mt-3">
+                <textarea  class="form-control"  name="tujuan" id="tujuan"  rows="7"  placeholder="Tujuan" >{{ old('tujuan') }}</textarea>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="form-group mt-3">
+                <textarea class="form-control"  name="keperluan" id="keperluan" rows="7"  placeholder="Keperluan" >{{ old('keperluan') }}</textarea>
+              </div>
+              <div class="form-group mt-3 fs-6 ">
+                <select class="form-control opacity-75 rounded-0" name="jenis_izin_id">
+                    <option  selected disabled >Jenis Izin</option>
+                    @foreach ($rs2 as $opt)
+                    <option value="{{ $opt->id }}"
+                        {{ old('jenis_izin_id') == $opt->id ? 'selected' : null }}>{{ $opt->jenis }}
+                    </option>
+                    @endforeach
+                </select>
+              </div>
+              <div class="form-group mt-3">
+                 <span class="badge bg-success text-wrap m-2" > Waktu Keluar</span>
+                <input value="{{ old('waktu_keluar') }}" type="datetime-local" class="form-control" name="waktu_keluar" id="waktu_keluar" placeholder="Waktu Keluar" >
+              </div>
+              <div class="form-group mt-3">
+                <span class="badge bg-success text-wrap m-2" > Waktu Masuk</span>
+                <input value="{{ old('waktu_kembali') }}" type="datetime-local" class="form-control" name="waktu_kembali" id="waktu_kembali" placeholder="Waktu Kembali" >
+              </div>
+    
+              <button type="submit" class="btn btn-success mt-4">Send Message</button>          
             </form>
           </div><!-- End Contact Form -->
 

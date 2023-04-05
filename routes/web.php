@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IzinController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,6 @@ Route::get('/blog-details', function () {
 Route::get('/portfolio-details', function () {
     return view('portfolio-details');
 });
+
+
+Route::resource('izin', IzinController::class);
