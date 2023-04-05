@@ -18,11 +18,11 @@ Route::controller(LoginController::class)->group(function(){
 });
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::group(['middleware' => ['cekLoginUser:asatidz']], function() {
+    Route::group(['middleware' => ['CekLoginUser:asatidz']], function() {
         Route::resource('izin', IzinController::class);
     });
 
-    Route::group(['middleware' => ['cekUserLogin:santri']], function() {
+    Route::group(['middleware' => ['CekLoginUser:santri']], function() {
         Route::resource('santri', Santri::class);
     });
 });
