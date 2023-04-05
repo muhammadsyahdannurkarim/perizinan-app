@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
-use DB;
 use App\Models\izin;
 
 class IzinController extends Controller
@@ -14,15 +13,10 @@ class IzinController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
     //memanpilkan
-    $ar_izin = DB::table('izin')->get();
-    return view('view.index',compact('ar_izin'));    }
-=======
         $ar_izin = DB::table('izin')->get();
         return view('izin.index', compact('ar_izin'));
     }
->>>>>>> a28d4f963b57a26b0e3d853283cd55cee45ae623
 
     /* Show the form for creating a new resource.
      *
