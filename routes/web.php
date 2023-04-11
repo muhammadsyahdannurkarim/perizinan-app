@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IzinController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +11,21 @@ use App\Http\Controllers\IzinController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::controller(LoginController::class)->group(function(){
+    Route::get('login', 'index')->name('login');
+    Route::post('login/proses', 'proses');
+    Route::get('logout', 'logout');
+});
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::group(['middleware' => ['CekLoginUser:asatidz']], function() {
+        Route::resource('izin', IzinController::class);
+    });
+
+    Route::group(['middleware' => ['CekLoginUser:santri']], function() {
+        Route::resource('santri', Santri::class);
+    });
+});
 
 Route::get('/', function () {
     return view('index');
